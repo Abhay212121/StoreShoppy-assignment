@@ -1,6 +1,7 @@
 import { Header } from "@/components/dashboard/Header";
 import { RightSidebar } from "@/components/dashboard/RightSidebar";
 import { Sidebar } from "@/components/dashboard/Sidebar";
+import { StatsCards } from "@/components/dashboard/StatsCards";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
@@ -39,6 +40,7 @@ export default function Dashboard() {
             <h1 className="text-xl font-semibold text-gray-900">Today</h1>
             <ChevronDown className="w-4 h-4 text-gray-400" />
           </div>
+          <StatsCards />
         </div>
       </div>
 
