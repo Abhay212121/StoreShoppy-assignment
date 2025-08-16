@@ -1,12 +1,8 @@
-// import { ChevronDown } from "lucide-react";
 import { Header } from "@/components/dashboard/Header";
+import { RightSidebar } from "@/components/dashboard/RightSidebar";
 import { Sidebar } from "@/components/dashboard/Sidebar";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-
-// import { StatsCards } from "@/components/dashboard/stats-cards";
-// import { ChartsSection } from "@/components/dashboard/charts-section";
-// import { AnalyticsGrid } from "@/components/dashboard/analytics-grid";
-// import { RightSidebar } from "@/components/dashboard/right-sidebar";
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -38,7 +34,18 @@ export default function Dashboard() {
           onSidebarToggle={() => setSidebarOpen(true)}
           onRightSidebarToggle={() => setRightSidebarOpen(true)}
         />
+        <div className="flex-1 p-4 lg:p-6 overflow-y-auto">
+          <div className="flex items-center gap-2 mb-6">
+            <h1 className="text-xl font-semibold text-gray-900">Today</h1>
+            <ChevronDown className="w-4 h-4 text-gray-400" />
+          </div>
+        </div>
       </div>
+
+      <RightSidebar
+        isOpen={rightSidebarOpen}
+        onClose={() => setRightSidebarOpen(false)}
+      />
     </div>
   );
 }
