@@ -28,7 +28,7 @@ const pieChartData = [
 
 export const Analytics = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6 mb-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-8">
       <Card>
         <CardHeader>
           <CardTitle className="text-lg font-semibold">
@@ -36,7 +36,7 @@ export const Analytics = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="h-48 lg:h-64">
+          <div className="h-40 sm:h-48 lg:h-56">
             <ResponsiveContainer
               width="100%"
               height="100%"
@@ -51,10 +51,14 @@ export const Analytics = () => {
                   axisLine={false}
                   tickLine={false}
                 />
-                <Bar
-                  dataKey="value"
-                  fill="#8884d8"
-                />
+                <Bar dataKey="value">
+                  {barChartData.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={entry.color}
+                    />
+                  ))}
+                </Bar>
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -68,8 +72,8 @@ export const Analytics = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col lg:flex-row items-center gap-6">
-            <div className="w-32 h-32 flex-shrink-0">
+          <div className="flex flex-col lg:flex-row items-center gap-4">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 flex-shrink-0">
               <ResponsiveContainer
                 width="100%"
                 height="100%"
@@ -79,8 +83,8 @@ export const Analytics = () => {
                     data={pieChartData}
                     cx="50%"
                     cy="50%"
-                    innerRadius={30}
-                    outerRadius={60}
+                    innerRadius={25}
+                    outerRadius={50}
                     dataKey="value"
                   >
                     {pieChartData.map((entry, index) => (
@@ -93,20 +97,20 @@ export const Analytics = () => {
                 </PieChart>
               </ResponsiveContainer>
             </div>
-            <div className="space-y-2 flex-1">
+            <div className="space-y-2 flex-1 w-full text-sm">
               {pieChartData.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between gap-4"
+                  className="flex items-center justify-between gap-3"
                 >
                   <div className="flex items-center gap-2">
                     <div
-                      className={`w-2 h-2 rounded-full`}
+                      className="w-2 h-2 rounded-full"
                       style={{ backgroundColor: item.color }}
-                    ></div>
-                    <span className="text-sm text-gray-600">{item.name}</span>
+                    />
+                    <span className="text-gray-600">{item.name}</span>
                   </div>
-                  <span className="text-sm font-medium">{item.value}%</span>
+                  <span className="font-medium">{item.value}%</span>
                 </div>
               ))}
             </div>
@@ -114,15 +118,17 @@ export const Analytics = () => {
         </CardContent>
       </Card>
 
-      <Card className="lg:col-span-2 xl:col-span-1">
+      <Card className="lg:col-span-2">
         <CardHeader>
           <CardTitle className="text-lg font-semibold">
             Marketing & SEO
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-center py-8">
-            <div className="text-2xl font-bold text-gray-900 mb-2">30M</div>
+          <div className="text-center py-6">
+            <div className="text-2xl sm:text-2xl font-bold text-gray-900 mb-1">
+              30M
+            </div>
             <div className="text-sm text-gray-600">Total Impressions</div>
           </div>
         </CardContent>

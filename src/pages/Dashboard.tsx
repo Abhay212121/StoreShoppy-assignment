@@ -12,17 +12,17 @@ export default function Dashboard() {
   const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-gray-50 overflow-hidden">
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 block hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {rightSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 xl:hidden"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
           onClick={() => setRightSidebarOpen(false)}
         />
       )}
@@ -32,16 +32,20 @@ export default function Dashboard() {
         onClose={() => setSidebarOpen(false)}
       />
 
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <Header
           onSidebarToggle={() => setSidebarOpen(true)}
           onRightSidebarToggle={() => setRightSidebarOpen(true)}
         />
-        <div className="flex-1 p-4 lg:p-6 overflow-y-auto">
+
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6">
           <div className="flex items-center gap-2 mb-6">
-            <h1 className="text-xl font-semibold text-gray-900">Today</h1>
+            <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">
+              Today
+            </h1>
             <ChevronDown className="w-4 h-4 text-gray-400" />
           </div>
+
           <StatsCards />
           <ChartSection />
           <Analytics />

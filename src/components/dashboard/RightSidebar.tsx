@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Bell, Settings, User, X } from "lucide-react";
@@ -62,9 +60,9 @@ export function RightSidebar({ isOpen, onClose }: RightSidebarProps) {
     <div
       className={`${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } xl:translate-x-0 fixed xl:static inset-y-0 right-0 z-50 w-80 bg-white border-l border-gray-200 flex flex-col transition-transform duration-300 ease-in-out`}
+      } 2xl:translate-x-0 fixed 2xl:static inset-y-0 right-0 z-50 w-80 bg-white border-l border-gray-200 flex flex-col transition-transform duration-300 ease-in-out`}
     >
-      <div className="xl:hidden absolute top-4 left-4">
+      <div className="2xl:hidden absolute top-4 right-6">
         <Button
           variant="ghost"
           size="sm"
