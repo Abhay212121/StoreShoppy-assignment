@@ -1,3 +1,5 @@
+import { Analytics } from "@/components/dashboard/Analytics";
+import { ChartSection } from "@/components/dashboard/ChartSection";
 import { Header } from "@/components/dashboard/Header";
 import { RightSidebar } from "@/components/dashboard/RightSidebar";
 import { Sidebar } from "@/components/dashboard/Sidebar";
@@ -41,6 +43,8 @@ export default function Dashboard() {
             <ChevronDown className="w-4 h-4 text-gray-400" />
           </div>
           <StatsCards />
+          <ChartSection />
+          <Analytics />
         </div>
       </div>
 
